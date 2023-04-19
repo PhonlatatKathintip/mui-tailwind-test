@@ -1,10 +1,32 @@
-//import logo from './logo.svg';
+import React, { useState, useEffect } from "react";
+import { Card, CardContent, Input } from "@mui/joy";
 import "./index.css";
 import Button from "@mui/material/Button";
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    return () => {};
+  }, [searchTerm]);
+
   return (
     <div>
+      <div>
+        <Card>
+          <CardContent>
+            <div>Search Box</div>
+            <Input
+              placeholder="Input Some Search Word"
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <div>
+              You Search <span className="text-blue-500">{searchTerm}</span>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
       <Button variant="contained" color="error">
         Hello World
       </Button>
